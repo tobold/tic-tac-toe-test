@@ -1,12 +1,11 @@
 (function(exports){
 
-  function Player(board) {
-    this.board = board;
+  function Player() {
   }
 
   Player.prototype = {
-    play: function(coordinates) {
-      this.board.place(coordinates);
+    play: function(coordinates, board) {
+      board.place(coordinates);
     }
   };
 
