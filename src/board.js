@@ -13,15 +13,15 @@
     }
   };
 
-  function generate2DArray(width, height) {
-    var array = [];
-    for(var y = height; y > 0; y--) {
-      var row = [];
-        for(var x = width; x > 0; x--) { row.push("-"); }
-      array.push(row);
-    }
-    return array;
-  }
-
   exports.Board = Board;
 })(this);
+
+function generate2DArray(width, height) {
+  var array = [];
+  for(var y = height; y > 0; y--) {
+    var row = [];
+      for(var x = width; x > 0; x--) { row.push("-"); }
+    array.push(row);
+  }
+  return array;
+}
