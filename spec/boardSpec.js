@@ -14,5 +14,8 @@ describe("Board", function() {
                                       ["0","-","-"],
                                       ["-","-","-"]] );
     });
+    it("places an X at the given coordinates", function(){
+      expect(function() { board.place(3,2,"X"); }).toThrow("no such coordinate");
+    });
   });
 });
