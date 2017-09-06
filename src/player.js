@@ -5,8 +5,8 @@
   }
 
   Player.prototype = {
-    play: function(coordinates, board) {
-      board.place(coordinates, this.symbol);
+    play: function(x, y, board) {
+      board.place(x, y, this.symbol);
     }
   };
 

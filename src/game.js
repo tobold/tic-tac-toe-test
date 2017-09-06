@@ -7,8 +7,8 @@
   }
 
   Game.prototype = {
-    play: function(coordinates) {
-      this._currentplayer.play(coordinates, board);
+    play: function(x, y) {
+      this._currentplayer.play(x, y, board);
       this.switchTurn();
     },
     currentPlayer: function() {

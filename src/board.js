@@ -5,8 +5,9 @@
   }
 
   Board.prototype = {
-    place: function(coordinates, symbol) {
-      this._board[coordinates[0]][coordinates[1]] = symbol;
+    place: function(x, y, symbol) {
+      if(y > 2 || x > 2) { throw "no such coordinate"; }
+      this._board[y][x] = symbol;
     },
     board: function() {
       return this._board;

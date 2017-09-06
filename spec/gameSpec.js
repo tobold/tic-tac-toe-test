@@ -9,12 +9,12 @@ describe("Game", function() {
 
   describe("#play", function(){
     it("delegates to the player to play a 0 or X", function(){
-      game.play([0,0]);
-      expect(player1.play).toHaveBeenCalledWith([0,0], board);
+      game.play(0,0);
+      expect(player1.play).toHaveBeenCalledWith(0,0, board);
     });
     it("swaps turns automatically after someone has played", function(){
       expect(game.currentPlayer()).toBe(player1);
-      game.play([0,0]);
+      game.play(0,0);
       expect(game.currentPlayer()).toBe(player2);
     });
   });
