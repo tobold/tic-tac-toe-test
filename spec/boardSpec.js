@@ -3,7 +3,7 @@ describe("Board", function() {
 
   describe("#place", function(){
     it("places an X at the given coordinates", function(){
-      board.place([0,0]);
+      board.place([0,0], "X");
       expect(board.board()).toEqual( [["X","-","-"],
                                       ["-","-","-"],
                                       ["-","-","-"]] );

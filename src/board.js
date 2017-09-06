@@ -5,8 +5,8 @@
   }
 
   Board.prototype = {
-    place: function(coordinates) {
-      this._board[coordinates[0]][coordinates[1]] = "X";
+    place: function(coordinates, symbol) {
+      this._board[coordinates[0]][coordinates[1]] = symbol;
     },
     board: function() {
       return this._board;
