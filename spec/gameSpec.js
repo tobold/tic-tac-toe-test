@@ -1,8 +1,11 @@
 describe("Game", function() {
   var game;
-  var board = jasmine.createSpyObj("board", ["place"]);
+  var board = jasmine.createSpyObj("board", ["place", "board"]);
   var ref = jasmine.createSpyObj("ref", ["judge"]);
-  var player1 = jasmine.createSpyObj("player1", ["play", "moves"]);
+  var player1 = jasmine.createSpyObj("player1", {
+    'play': null,
+    'moves': []
+  });
   var player2 = jasmine.createSpyObj("player2", ["play", "moves"]);
 
   beforeEach(function() {
@@ -18,6 +21,10 @@ describe("Game", function() {
       expect(game._currentplayer).toBe(player1);
       game.play(0,0);
       expect(game._currentplayer).toBe(player2);
+    });
+    it("won't continue if the game is over", function(){
+      game._run = 'draw';
+      expect(game.play(0,0)).toBe("Draw! everybody loses!");
     });
   });
 });

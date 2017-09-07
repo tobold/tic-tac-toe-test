@@ -11,16 +11,22 @@
 
   Game.prototype = {
     play: function(x, y) {
+      if(this._player1.moves().length === 5 &&
+         this._player1.moves().length === 4 )
+         { this._run = "draw"; }
       if(this._run === true) {
         this._currentplayer.play(x, y, this._board);
         if(this._ref.judge(this._currentplayer.moves())) {
-          this._run = false;
+          this._run = 'gameover';
         }
-        console.log(this._board._board);
+        console.log(this._board.board());
         switchTurn(this);
       }
-      if(this._run === false) {
+      if(this._run === 'gameover') {
         return "Game over! " + this._currentplayer._name + " wins!";
+      }
+      if(this._run === 'draw') {
+        return "Draw! everybody loses!";
       }
     },
   };
