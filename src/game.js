@@ -6,7 +6,7 @@
     this._currentplayer = player1;
     this._board = board;
     this._ref = ref;
-    this._run = true
+    this._run = true;
   }
 
   Game.prototype = {
@@ -20,7 +20,7 @@
         switchTurn(this);
       }
       if(this._run === false) {
-        return "Game over!";
+        return "Game over! " + this._currentplayer._name + " wins!";
       }
     },
   };
