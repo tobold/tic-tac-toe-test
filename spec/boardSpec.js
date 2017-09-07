@@ -14,8 +14,13 @@ describe("Board", function() {
                                       ["0","-","-"],
                                       ["-","-","-"]] );
     });
-    it("places an X at the given coordinates", function(){
+    it("raises an error if placed off the board", function(){
       expect(function() { board.place(3,2,"X"); }).toThrow("no such coordinate");
+      expect(function() { board.place(-1,3,"X"); }).toThrow("no such coordinate");
+    });
+    it("cannot place ontop of another symbol", function(){
+      board.place(0,0,"X");
+      expect(function() { board.place(0,0,"0"); }).toThrow("tile already taken");
     });
   });
 });
