@@ -4,7 +4,7 @@ describe("Game", function() {
   player2 = jasmine.createSpyObj("player2", ["play"]);
 
   beforeEach(function() {
-    game = new Game(player1, player2);
+    game = new Game(player1, player2, board);
   });
 
   describe("#play", function(){
@@ -13,17 +13,9 @@ describe("Game", function() {
       expect(player1.play).toHaveBeenCalledWith(0,0, board);
     });
     it("swaps turns automatically after someone has played", function(){
-      expect(game.currentPlayer()).toBe(player1);
+      expect(game._currentplayer).toBe(player1);
       game.play(0,0);
-      expect(game.currentPlayer()).toBe(player2);
-    });
-  });
-
-  describe("#swapTurns", function(){
-    it("swaps the current player", function(){
-      expect(game.currentPlayer()).toBe(player1);
-      game.switchTurn();
-      expect(game.currentPlayer()).toBe(player2);
+      expect(game._currentplayer).toBe(player2);
     });
   });
 });
