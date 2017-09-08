@@ -1,16 +1,21 @@
 (function(exports){
 
-  function Game(player1, player2, board, ref) {
+  function Game(player1, player2, board, ref, validator) {
     this._player1 = player1;
     this._player2 = player2;
     this._currentplayer = player1;
     this._board = board;
     this._ref = ref;
     this._run = true;
+    this._validator = validator;
   }
 
   Game.prototype = {
     play: function(x, y) {
+      if(this._validator.validate(x, y, this._board)) {
+        this._currentplayer.play(x, y, this._board);
+      }
+
       if(this._player2.moves().length === 4 ) { this._run = "draw"; }
       switch (this._run) {
       case true:

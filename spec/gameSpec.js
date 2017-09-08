@@ -10,12 +10,19 @@ describe("Game", function() {
     'play': null,
     'moves': []
   });
+  var validator = jasmine.createSpyObj("validator", {
+    'validate': true
+  });
 
   beforeEach(function() {
-    game = new Game(player1, player2, board, ref);
+    game = new Game(player1, player2, board, ref, validator);
   });
 
   describe("#play", function(){
+    it("delegates to the validator before playing", function(){
+      game.play(0,0);
+      expect(validator.validate).toHaveBeenCalledWith(0,0, board);
+    });
     it("delegates to the player to play a 0 or X", function(){
       game.play(0,0);
       expect(player1.play).toHaveBeenCalledWith(0,0, board);
