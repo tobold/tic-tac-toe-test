@@ -1,6 +1,9 @@
 describe("Game", function() {
   var game;
-  var board = jasmine.createSpyObj("board", ["place", "board"]);
+  var board = jasmine.createSpyObj("board", {
+    'place': null,
+    'board':[]
+  });
   var ref = jasmine.createSpyObj("ref", ["judge"]);
   var player1 = jasmine.createSpyObj("player1", {
     'play': null,

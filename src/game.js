@@ -19,7 +19,6 @@
       if(this._player2.moves().length === 4 ) { this._run = "draw"; }
       switch (this._run) {
       case true:
-        this._currentplayer.play(x, y, this._board);
         console.log(this._board.board());
         if(this._ref.judge(this._currentplayer.moves())) {
           this._run = 'gameover';
@@ -32,6 +31,10 @@
       case 'draw':
         return "Draw! everybody loses!";
       }
+    },
+    state: function() {
+      if(this._run === true) { return "ongoing"; }
+      return this._run;
     }
   };
 

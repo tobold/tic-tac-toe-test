@@ -3,9 +3,11 @@ describe("Validator", function() {
 
   beforeEach(function() {
     validator = new Validator();
-    board = [["X","-","-"],
-             ["-","-","-"],
-             ["-","-","-"]];
+    board = jasmine.createSpyObj("board", {
+      'board':[["X","-","-"],
+               ["-","-","-"],
+               ["-","-","-"]]
+    });
   });
 
   describe("#validate", function(){
