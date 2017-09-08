@@ -11,13 +11,8 @@
       this._board[y][x] = symbol;
       this._moves ++;
     },
-    board: function() {
-      return this._board;
-    },
-    full: function() {
-      if(this._moves === (this._size * this._size)) { return true; }
-      else { return false; }
-    }
+    board: function() { return this._board; },
+    full: function() { return this._moves === (this._size * this._size); }
   };
 
   exports.Board = Board;

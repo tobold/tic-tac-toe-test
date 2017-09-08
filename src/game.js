@@ -41,9 +41,5 @@ calculateState = function(game, x, y) {
 };
 
 switchTurn = function(game) {
-  if(game._currentplayer === game._player1) {
-    game._currentplayer = game._player2;
-  } else if (game._currentplayer === game._player2){
-    game._currentplayer = game._player1;
-  }
+  game._currentplayer = (game._currentplayer === game._player1) ? game._player2 : game._player1;
 };
