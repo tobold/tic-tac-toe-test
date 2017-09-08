@@ -35,9 +35,5 @@ describe("Game", function() {
       game.play(0,0);
       expect(game._currentplayer).toBe(player2);
     });
-    it("won't continue if the game is over", function(){
-      game._run = 'draw';
-      expect(game.play(0,0)).toBe("Draw! everybody loses!");
-    });
   });
 });
