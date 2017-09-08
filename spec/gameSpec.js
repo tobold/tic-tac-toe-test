@@ -6,7 +6,10 @@ describe("Game", function() {
     'play': null,
     'moves': []
   });
-  var player2 = jasmine.createSpyObj("player2", ["play", "moves"]);
+  var player2 = jasmine.createSpyObj("player2", {
+    'play': null,
+    'moves': []
+  });
 
   beforeEach(function() {
     game = new Game(player1, player2, board, ref);
