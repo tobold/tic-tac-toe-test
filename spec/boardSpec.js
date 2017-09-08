@@ -2,7 +2,7 @@ describe("Board", function() {
   var board;
 
   beforeEach(function() {
-    board = new Board();
+    board = new Board(3);
   });
 
   describe("#place", function(){

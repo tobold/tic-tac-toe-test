@@ -13,11 +13,4 @@ describe("Player", function() {
       expect(board.place).toHaveBeenCalledWith(0,0,'X');
     });
   });
-
-  describe("#moves", function(){
-    it("returns an array of all of the players moves", function(){
-      player1.play(0,0, board);
-      expect(player1.moves()).toEqual([[0,0]]);
-    });
-  });
 });

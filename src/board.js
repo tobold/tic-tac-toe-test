@@ -1,15 +1,22 @@
 (function(exports){
 
-  function Board() {
-    this._board = generate2DArray(3, 3);
+  function Board(size) {
+    this._board = generate2DArray(size, size);
+    this._moves = 0;
+    this._size = size;
   }
 
   Board.prototype = {
     place: function(x, y, symbol) {
       this._board[y][x] = symbol;
+      this._moves ++;
     },
     board: function() {
       return this._board;
+    },
+    full: function() {
+      if(this._moves === (this._size * this._size)) { return true; }
+      else { return false; }
     }
   };
 

@@ -10,9 +10,6 @@
     play: function(x, y, board) {
       this._moves.push([x, y]);
       board.place(x, y, this._symbol);
-    },
-    moves: function() {
-      return this._moves;
     }
   };
 

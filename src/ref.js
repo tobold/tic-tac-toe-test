@@ -1,30 +1,37 @@
 (function(exports){
 
-  function Ref() {
-    this._winningmoves = [[[0,0],[0,1],[0,2]],
-                          [[1,0],[1,1],[1,2]],
-                          [[2,0],[2,1],[2,2]],
-                          [[0,0],[1,0],[2,0]],
-                          [[0,1],[1,1],[2,1]],
-                          [[0,2],[1,2],[2,2]],
-                          [[0,0],[1,1],[2,2]],
-                          [[0,2],[1,1],[2,0]]];
-  }
+  function Ref() {}
 
   Ref.prototype = {
-    judge: function(currentplayermoves) {
-      var verdict = false;
-      this._winningmoves.forEach(function(winarray) {
-        var judgearray = [];
-        currentplayermoves.forEach(function(turn){
-          if(isArrayInArray(winarray, turn)) { judgearray.push(turn); }
-        });
-        if(judgearray.length === 3) {
-          verdict = true;
-          return;
+    judge: function(board, symbol, x, y) {
+      var i, verdict;
+      var size = board.length;
+
+      for(i = 0; i < size; i++){
+        if(board[i][x] != symbol) { break; }
+        if(i === size - 1){ return true; }
+      }
+
+      for(i = 0; i < size; i++){
+        if(board[y][i] != symbol) { break; }
+        if(i === size - 1){ return true; }
+      }
+
+      if(x === y){
+        for(i = 0; i < size; i++){
+          if(board[i][i] != symbol) { break; }
+          if(i === size - 1){ return true; }
         }
-      });
-      return verdict;
+      }
+
+      if(x + y === size - 1){
+        for(i = 0; i < size ; i++){
+          if(board[i][(size - 1) - i] != symbol) { break; }
+          if(i === size - 1){ return true; }
+        }
+      }
+
+      return false;
     }
   };
 
