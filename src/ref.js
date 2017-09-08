@@ -37,12 +37,3 @@
 
   exports.Ref = Ref;
 })(this);
-
-function isArrayInArray(source, search) {
-  for (var i = 0; i < source.length; i++) {
-    if (source[i][0] === search[0] && source[i][1] === search[1]) {
-      return true;
-    }
-  }
-  return false;
-}
